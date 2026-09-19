@@ -23,6 +23,6 @@ describe('Title Component', () => {
     ).toBeInTheDocument();
     const sourceLink = screen.getByRole('link', { name: /Aromin AI/i });
     expect(sourceLink).toBeInTheDocument();
-    expect(sourceLink).toHaveAttribute('href', 'https://github.com/andrew-aromin/aromin_ai');
+    expect(sourceLink).toHaveAttribute('href', 'https://github.com/andrew-aromin/andrew_ai');
   });
 });

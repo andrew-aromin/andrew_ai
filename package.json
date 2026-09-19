@@ -1,5 +1,5 @@
 {
-  "name": "aromin_ai",
+  "name": "andrew_ai",
   "private": true,
   "scripts": {
     "docker:build": "docker-compose up --build -d",

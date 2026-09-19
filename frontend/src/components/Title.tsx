@@ -18,9 +18,9 @@ export default function Title() {
         </Text>
         <Space h="xs" />
         Source Code:{' '}
-        <Anchor href="https://github.com/andrew-aromin/aromin_ai" target="_blank">
+        <Anchor href="https://github.com/andrew-aromin/andrew_ai" target="_blank">
           <Text span fz={{ base: 'sm', sm: 'md', md: 'lg' }} fw={500}>
-            Aromin AI
+            Andrew AI
           </Text>
         </Anchor>
       </Text>

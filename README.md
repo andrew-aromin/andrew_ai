@@ -51,7 +51,7 @@ Before you begin, ensure you have the following installed on your machine:
 
 ```bash
 git clone <your-repo-url>
-cd aromin_ai
+cd andrew_ai
 ```
 
 ### 2. Configure Environment Variables
