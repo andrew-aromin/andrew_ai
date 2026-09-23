@@ -3,7 +3,7 @@ FastAPI application entry point for Aromin AI.
 Provides REST endpoints for document ingestion, chat streaming (SSE),
 and question discovery with rate limiting and security defenses.
 """
-
+import os
 import asyncio
 import json
 import logging
@@ -11,12 +11,6 @@ from contextlib import asynccontextmanager
 from typing import Any, AsyncGenerator, Dict, List, Optional
 
 import uvicorn
-from config import (
-    ALLOWED_ORIGINS,
-    API_HOST,
-    API_PORT,
-    API_TITLE,
-)
 from fastapi import Depends, FastAPI, File, HTTPException, Request, UploadFile, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
@@ -28,6 +22,12 @@ from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 from slowapi.util import get_remote_address
 from utils import sanitize_input, verify_ingest_key
+from config import (
+    ALLOWED_ORIGINS,
+    API_HOST,
+    API_PORT,
+    API_TITLE,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -68,8 +68,6 @@ async def lifespan(app: FastAPI):
 
 # Initialize Rate Limiter
 limiter = Limiter(key_func=get_remote_address)
-
-import os
 
 _is_production = os.getenv("ENVIRONMENT", "production") == "production"
 app: FastAPI = FastAPI(
